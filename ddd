@@ -1,6 +1,6 @@
   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
         local replayName =  "t.txt"
-        local startTime = tick()
+        local startTime = time()
         local timed = game:GetService("Workspace").GameStatus.Time.Value
      local macro = readfile(replayName)
      local httpService = game:GetService("HttpService")
@@ -38,7 +38,7 @@
             end
     
             local currentTask = recordTowers[tower] 
-            if (currentTask.time <= timed) then 
+            if (currentTask.time <= time()) then 
                  if currentTask.type == "CreateUnit" then 
                 place(currentTask)
                  elseif currentTask.type == "UpgradeUnit" then 
